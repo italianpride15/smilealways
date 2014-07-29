@@ -14,7 +14,7 @@ function detectRedirect(details) {
         return;
     }
     
-    var http = "http://";
+    //var http = "http://";
     var https = "https://";
     var amazonurl = "www.amazon.com";
     // ignore links with these strings in them
@@ -25,11 +25,12 @@ function detectRedirect(details) {
         return;
     }
 
-    if (url.match(http + amazonurl) != null) {
+    //if (url.match(http + amazonurl) != null) {
         // If this is the non-secure link...
-        return redirectToSmile(http, amazonurl, url);
+    //    return redirectToSmile(http, amazonurl, url);
 
-    }  else if (url.match(https + amazonurl) != null) {
+    //}  else 
+    if (url.match(https + amazonurl) != null) {
         // If this is the secure link...
         return redirectToSmile(https, amazonurl, url);
     }
@@ -40,7 +41,7 @@ function redirectToSmile(scheme, amazonurl, url) {
     var smileurl = "smile.amazon.com";
     return {
         // redirect to amazon smile append the rest of the url
-        redirectUrl : scheme + smileurl + getRelativeRedirectUrl(amazonurl, url)
+        redirectUrl : scheme + smileurl //+ getRelativeRedirectUrl(amazonurl, url)
     };
 }
 
